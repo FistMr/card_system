@@ -1,7 +1,6 @@
 package com.puchkov.card_system.entity;
 
 import com.puchkov.card_system.enums.CardStatus;
-import com.puchkov.card_system.utils.Encryptor;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -41,14 +40,15 @@ public class Card {
     @Column(nullable = false, precision = 19, scale = 2)
     private BigDecimal balance;
 
+    @Builder.Default
     @OneToMany(mappedBy = "card", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Transaction> transactions = new ArrayList<>();
 
     @Column(name = "daily_withdrawal_limit", precision = 19, scale = 2)
-    private BigDecimal dailyWithdrawalLimit = new BigDecimal("150000.00");
+    private BigDecimal dailyWithdrawalLimit;
 
     @Column(name = "monthly_withdrawal_limit", precision = 19, scale = 2)
-    private BigDecimal monthlyWithdrawalLimit = new BigDecimal("1500000.00");
+    private BigDecimal monthlyWithdrawalLimit;
 
 
     public Card(String cardNumber, User owner) {

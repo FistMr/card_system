@@ -1,7 +1,6 @@
 package com.puchkov.card_system.repository;
 
 import com.puchkov.card_system.dto.Filter;
-import com.puchkov.card_system.entity.Card;
 import com.puchkov.card_system.entity.Transaction;
 import com.puchkov.card_system.utils.PredicateBuilder;
 import lombok.RequiredArgsConstructor;
@@ -16,6 +15,7 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 import java.util.List;
+
 @Repository
 @RequiredArgsConstructor
 public class FilterTransactionRepositoryImpl implements FilterTransactionRepository {
