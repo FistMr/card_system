@@ -1,0 +1,19 @@
+databaseChangeLog:
+  - changeSet:
+      id: v1-create-roles-table
+      author: pavel puchkov
+      changes:
+        - createTable:
+            tableName: roles
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: name
+                  type: VARCHAR(50)
+                  constraints:
+                    nullable: false
